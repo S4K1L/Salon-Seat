@@ -1,4 +1,4 @@
-package com.example.flutter_extension
+package com.salon.seat
 
 import io.flutter.embedding.android.FlutterActivity
 

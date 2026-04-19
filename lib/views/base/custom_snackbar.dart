@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_extension/util/app_fonts.dart';
 import 'package:get/get.dart';
 
 void showCustomSnackBar(String? message,
@@ -8,7 +9,10 @@ void showCustomSnackBar(String? message,
     if (getXSnackBar) {
       Get.showSnackbar(GetSnackBar(
         backgroundColor: isError ? Colors.red.shade400 : Colors.green,
-        message: message,
+        messageText: Text(
+          message,
+          style: AppFonts.inter(fontSize: 14, color: Colors.white),
+        ),
         duration: const Duration(seconds: 3),
         snackStyle: SnackStyle.FLOATING,
         margin: EdgeInsets.all(10.sp),
@@ -29,7 +33,10 @@ void showCustomSnackBar(String? message,
         backgroundColor: isError ? Colors.red.shade400 : Colors.green,
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
-        content: Text(message, style:const TextStyle(fontSize: 14)),
+        content: Text(
+          message,
+          style: AppFonts.inter(fontSize: 14),
+        ),
       ));
     }
   }

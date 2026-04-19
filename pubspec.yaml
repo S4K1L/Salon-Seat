@@ -18,6 +18,7 @@ dependencies:
   flutter_spinkit:
   cached_network_image:
   shimmer: 
+  google_fonts: ^8.0.2
 
 
 
@@ -31,6 +32,7 @@ flutter:
   assets:
     - assets/language/
     - assets/images/
+    - assets/icons/
 
   # fonts:
   #   - family: Schyler

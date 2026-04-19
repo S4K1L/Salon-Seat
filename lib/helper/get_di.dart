@@ -1,10 +1,10 @@
 
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:flutter_extension/controller/choose_role_controller.dart';
 import 'package:flutter_extension/controller/splash_controller.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../controller/home_controller.dart';
 import '../controller/localization_controller.dart';
 import '../controller/theme_controller.dart';
 import '../data/model/language_model.dart';
@@ -20,6 +20,7 @@ Future<Map<String, Map<String, String>>>  init() async {
   Get.lazyPut(() => ThemeController(sharedPreferences: Get.find()));
   Get.lazyPut(() => LocalizationController(sharedPreferences: Get.find()));
   Get.lazyPut(() => SplashController());
+  Get.lazyPut(() => ChooseRoleController());
 
 
 

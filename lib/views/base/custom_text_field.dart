@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../util/app_colors.dart';
+import '../../util/app_fonts.dart';
 import '../../util/app_constants.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -82,7 +83,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           },
       cursorColor: AppColors.primaryColor,
       obscureText: widget.isPassword ? obscureText : false,
-      style: TextStyle(color: Colors.white, fontSize: 16.sp),
+      style: AppFonts.inter(color: Colors.white, fontSize: 16.sp),
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
             horizontal: widget.contentPaddingHorizontal ?? 20.w,

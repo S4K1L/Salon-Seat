@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/util/app_fonts.dart';
 
 class NotFound extends StatelessWidget {
   const NotFound({super.key});
@@ -12,9 +13,13 @@ class NotFound extends StatelessWidget {
         duration: const Duration(seconds: 2),
         tween: Tween<double>(begin: 12.0, end: 30.0),
         builder: (BuildContext context, double value, Widget? child) {
-          return Text('Page Not Found',
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, fontSize: value));
+          return Text(
+            'Page Not Found',
+            style: AppFonts.inter(
+              fontWeight: FontWeight.bold,
+              fontSize: value,
+            ),
+          );
         },
       )),
     );
