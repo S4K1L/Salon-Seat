@@ -15,6 +15,7 @@ class PrimaryFilledButton extends StatelessWidget {
     this.height,
     this.borderRadius,
     this.backgroundColor,
+    this.textColor,
     this.gradientStart,
     this.gradientEnd,
   });
@@ -29,6 +30,7 @@ class PrimaryFilledButton extends StatelessWidget {
   final double? borderRadius;
   /// If set, uses solid fill instead of gradient.
   final Color? backgroundColor;
+  final Color? textColor;
   /// Gradient top color (brighter teal).
   final Color? gradientStart;
   /// Gradient bottom color (deeper teal).
@@ -65,7 +67,7 @@ class PrimaryFilledButton extends StatelessWidget {
             style: AppFonts.inter(
               fontSize: 16.sp,
               fontWeight: FontWeight.w600,
-              color: Colors.white,
+              color: textColor ?? Colors.white,
             ),
           );
 

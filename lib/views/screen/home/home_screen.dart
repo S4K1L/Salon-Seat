@@ -1,105 +1,104 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_extension/controller/home_controller.dart';
-import 'package:flutter_extension/controller/localization_controller.dart';
-import 'package:flutter_extension/controller/theme_controller.dart';
-import 'package:flutter_extension/util/app_constants.dart';
-import 'package:flutter_extension/views/base/custom_button.dart';
-import 'package:flutter_extension/views/base/custom_image.dart';
-import 'package:get/get.dart';
+import 'package:flutter_extension/util/app_colors.dart';
+import 'package:flutter_extension/util/images.dart';
+import 'package:flutter_extension/views/base/home_dashboard_widgets.dart';
+import 'package:flutter_extension/views/base/primary_filled_button.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  final HomeController homeController = Get.put(HomeController());
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Home Screen')),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Home Screen'),
-
-            // Theme Switcher
-            Switch(
-              value: Get.find<ThemeController>().darkTheme,
-              onChanged: (v) {
-                Get.find<ThemeController>().toggleTheme();
-              },
-            ),
-            const SizedBox(height: 20),
-
-            // Language Dropdown
-            GetBuilder<LocalizationController>(
-              builder: (localizationController) {
-                int _index = 0;
-                List<DropdownMenuItem<int>> _languageList = [];
-                for (
-                  int index = 0;
-                  index < AppConstants.languages.length;
-                  index++
-                ) {
-                  _languageList.add(
-                    DropdownMenuItem(
-                      value: index,
-                      child: Text(AppConstants.languages[index].languageName),
-                    ),
-                  );
-                  if (AppConstants.languages[index].languageCode ==
-                      localizationController.locale.languageCode) {
-                    _index = index;
-                  }
-                }
-                return DropdownButton<int>(
-                  value: _index,
-                  items: _languageList,
-                  dropdownColor: Theme.of(context).cardColor,
-                  icon: const Icon(Icons.keyboard_arrow_down),
-                  elevation: 0,
-                  iconSize: 30,
-                  underline: const SizedBox(),
-                  onChanged: (int? index) {
-                    localizationController.setLanguage(
-                      Locale(
-                        AppConstants.languages[index!].languageCode,
-                        AppConstants.languages[index].countryCode,
-                      ),
-                    );
-                  },
-                );
-              },
-            ),
-            const SizedBox(width: 20),
-            // Example of CustomImage usage
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: const CustomImage(
-                image: "slslsls",
-                height: 100,
-                width: 200,
-              ),
-            ),
-            const SizedBox(height: 20),
-            // Example of CustomButton usage
-           
-               CustomButton(
-                onTap: () {
-                },
-                text: "Click Me",
-              ),
-            
-          ],
-        ),
+    return const Scaffold(
+      backgroundColor: AppColors.authBackground,
+      body: SafeArea(
+        child: _DashboardTab(),
       ),
     );
   }
 }
+
+class _DashboardTab extends StatelessWidget {
+  const _DashboardTab();
+
+  static const _metricItems = <HomeMetricItem>[
+    HomeMetricItem(
+      svgAssetPath: Images.homeMetricActiveListings,
+      iconBg: Color(0xFFD8F5E9),
+      value: '3',
+      label: 'Active Listings',
+    ),
+    HomeMetricItem(
+      svgAssetPath: Images.homeMetricPendingApproval,
+      iconBg: Color(0xFFFFF3D6),
+      value: '2',
+      label: 'Pending Approval',
+    ),
+    HomeMetricItem(
+      svgAssetPath: Images.homeMetricTotalViews,
+      iconBg: Color(0xFFE1EAFF),
+      value: '247',
+      label: 'Total Views',
+    ),
+    HomeMetricItem(
+      svgAssetPath: Images.homeMetricSaves,
+      iconBg: Color(0xFFD8F5E9),
+      value: '24',
+      label: 'Saves',
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const HomeDashboardHeader(),
+          SizedBox(height: 12.h),
+          
+          const HomeMetricGrid(items: _metricItems),
+          SizedBox(height: 12.h),
+          const HomeCurrentPlanCard(),
+          SizedBox(height: 12.h),
+          const HomeRecentListingsHeader(),
+          SizedBox(height: 8.h),
+          const HomeRecentListingCard(
+            imageEmoji: '🏠',
+            title: 'Luxury Salon Station',
+            location: 'Downtown, Los Angeles',
+            price: '\$500/month',
+            status: 'Active',
+            active: true,
+          ),
+          SizedBox(height: 10.h),
+          const HomeRecentListingCard(
+            imageEmoji: '💈',
+            title: 'Luxury Salon Station',
+            location: 'Downtown, Los Angeles',
+            price: '\$500/month',
+            status: 'Paused',
+            active: false,
+          ),
+          SizedBox(height: 14.h),
+          const PrimaryFilledButton(
+            label: 'Create New Listing',
+            onPressed: null,
+            enabled: true,
+          ),
+          SizedBox(height: 8.h),
+          PrimaryFilledButton(
+            label: 'Boost Listing',
+            onPressed: () {},
+            backgroundColor: const Color(0xFFE5E5E5),
+            textColor: const Color(0xFF333333),
+          ),
+          SizedBox(height: 8.h),
+        ],
+      ),
+    );
+  }
+}
+

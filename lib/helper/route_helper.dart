@@ -13,7 +13,7 @@ import 'package:flutter_extension/views/screen/auth/otp_verification_screen.dart
 import 'package:flutter_extension/views/screen/auth/reset_password_screen.dart';
 import 'package:flutter_extension/views/screen/auth/sign_up_screen.dart';
 import 'package:flutter_extension/views/screen/choose_role/choose_role_screen.dart';
-import 'package:flutter_extension/views/screen/home/home_screen.dart';
+import 'package:flutter_extension/views/screen/main_nav/main_nav_screen.dart';
 import 'package:flutter_extension/views/screen/subscription/listing_plan_screen.dart';
 import 'package:flutter_extension/views/screen/subscription/payment_method_screen.dart';
 import 'package:get/get.dart';
@@ -114,6 +114,6 @@ class AppRoutes {
         Get.put(PaymentMethodController(planTierIndex: idx));
       }),
     ),
-    GetPage(name: homeScreen, page: () => const HomeScreen()),
+    GetPage(name: homeScreen, page: () => const MainNavScreen()),
   ];
 }

@@ -15,4 +15,18 @@ class Images {
   static const String icMasterCard = "assets/icons/master_card.svg";
   static const String icStripe = "assets/icons/stripe.svg";
   static const String icPaypal = "assets/icons/paypal.svg";
+
+  static const String navDashboard = "assets/icons/nav_dashboard.svg";
+  static const String navListings = "assets/icons/nav_listings.svg";
+  static const String navMessage = "assets/icons/nav_message.svg";
+  static const String navAnalytics = "assets/icons/nav_analytics.svg";
+  static const String navSettings = "assets/icons/nav_settings.svg";
+
+  static const String homeMetricActiveListings =
+      "assets/icons/salon.svg";
+  static const String homeMetricPendingApproval =
+      "assets/icons/home_metric_pending_approval.svg";
+  static const String homeMetricTotalViews =
+      "assets/icons/home_metric_total_views.svg";
+  static const String homeMetricSaves = "assets/icons/home_metric_saves.svg";
 }

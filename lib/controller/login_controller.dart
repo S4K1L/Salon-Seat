@@ -18,7 +18,7 @@ class LoginController extends GetxController {
     isLoading.value = true;
     await Future.delayed(const Duration(milliseconds: 700));
     isLoading.value = false;
-    Get.offNamed(AppRoutes.homeScreen);
+    Get.offAllNamed(AppRoutes.homeScreen);
   }
 
   void onForgotPassword() {
