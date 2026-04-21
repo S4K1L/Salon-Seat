@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/util/app_colors.dart';
-import 'package:flutter_extension/util/app_fonts.dart';
 import 'package:flutter_extension/util/images.dart';
 import 'package:flutter_extension/views/base/custom_bottom_nav_bar.dart';
 import 'package:flutter_extension/views/screen/home/home_screen.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_extension/views/screen/listings/listings_screen.dart';
+import 'package:flutter_extension/views/screen/settings/settings_screen.dart';
 
 class MainNavScreen extends StatelessWidget {
   const MainNavScreen({super.key});
@@ -23,10 +23,10 @@ class MainNavScreen extends StatelessWidget {
       items: _tabs,
       pages: [
         HomeScreen(),
-        _PlaceholderTab(title: 'Listings'),
+        ListingsScreen(),
         _PlaceholderTab(title: 'Message'),
         _PlaceholderTab(title: 'Analytics'),
-        _PlaceholderTab(title: 'Settings'),
+        SettingsScreen(),
       ],
       backgroundColor: AppColors.authBackground,
     );
@@ -40,19 +40,6 @@ class _PlaceholderTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.w),
-        child: Text(
-          '$title page placeholder.\nWe can build this next.',
-          textAlign: TextAlign.center,
-          style: AppFonts.inter(
-            fontSize: 20.sp,
-            color: AppColors.authTextSecondary,
-            height: 1.4,
-          ),
-        ),
-      ),
-    );
+    return Center(child: Text(title));
   }
 }

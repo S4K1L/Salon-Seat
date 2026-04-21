@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_extension/util/app_fonts.dart';
+import 'package:flutter_extension/views/screen/notifications/notifications_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class HomeDashboardHeader extends StatelessWidget {
   const HomeDashboardHeader({super.key});
@@ -34,18 +36,23 @@ class HomeDashboardHeader extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-          width: 36.w,
-          height: 36.w,
-          decoration: BoxDecoration(
-            color: AppColors.authAccent.withValues(alpha: 0.15),
-            shape: BoxShape.circle,
-          ),
-          alignment: Alignment.center,
-          child: Icon(
-            Icons.notifications_none_rounded,
-            size: 20.sp,
-            color: AppColors.authAccent,
+        GestureDetector(
+          onTap: () {
+            Get.to(() => const NotificationsScreen());
+          },
+          child: Container(
+            width: 36.w,
+            height: 36.w,
+            decoration: BoxDecoration(
+              color: AppColors.authAccent.withValues(alpha: 0.15),
+              shape: BoxShape.circle,
+            ),
+            alignment: Alignment.center,
+            child: Icon(
+              Icons.notifications_none_rounded,
+              size: 20.sp,
+              color: AppColors.authAccent,
+            ),
           ),
         ),
       ],
@@ -63,7 +70,7 @@ class HomeMetricGrid extends StatelessWidget {
     return GridView.count(
       crossAxisCount: 2,
       shrinkWrap: true,
-      childAspectRatio: 1.15,
+      childAspectRatio: 1.35,
       physics: const NeverScrollableScrollPhysics(),
       mainAxisSpacing: 20.h,
       crossAxisSpacing: 20.w,
@@ -309,9 +316,11 @@ class HomeRecentListingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final statusBg = active ? const Color(0xFFD8F5E9) : const Color(0xFFFFF3D6);
-    final statusText = active ? const Color(0xFF2DBA83) : const Color(0xFFFFB000);
+    final statusText = active
+        ? const Color(0xFF2DBA83)
+        : const Color(0xFFFFB000);
     return Container(
-      padding: EdgeInsets.all(8.w),
+      padding: EdgeInsets.all(6.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12.r),
@@ -320,8 +329,8 @@ class HomeRecentListingCard extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 120.w,
-            height: 120.h,
+            width: 100.w,
+            height: 100.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.r),
               gradient: const LinearGradient(
@@ -354,8 +363,10 @@ class HomeRecentListingCard extends StatelessWidget {
                     ),
                     SizedBox(width: 8.w),
                     Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10.w, vertical: 3.h),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 10.w,
+                        vertical: 3.h,
+                      ),
                       decoration: BoxDecoration(
                         color: statusBg,
                         borderRadius: BorderRadius.circular(16.r),

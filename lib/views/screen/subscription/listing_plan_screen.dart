@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/controller/listing_plan_controller.dart';
-import 'package:flutter_extension/helper/route_helper.dart';
 import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_extension/util/app_fonts.dart';
 import 'package:flutter_extension/views/base/primary_filled_button.dart';
@@ -25,7 +24,7 @@ class ListingPlanScreen extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: InkWell(
-                  onTap: () => Get.offAllNamed(AppRoutes.loginScreen),
+                  onTap: () => Get.back(),
                   borderRadius: BorderRadius.circular(8.r),
                   child: Padding(
                     padding: EdgeInsets.symmetric(
@@ -156,10 +155,7 @@ class _PlanCard extends StatelessWidget {
         child: Ink(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(14.r),
-            border: Border.all(
-              color: borderColor,
-              width: borderWidth,
-            ),
+            border: Border.all(color: borderColor, width: borderWidth),
           ),
           padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 14.h),
           child: Column(
