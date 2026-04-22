@@ -267,7 +267,9 @@ class HomeCurrentPlanCard extends StatelessWidget {
 }
 
 class HomeRecentListingsHeader extends StatelessWidget {
-  const HomeRecentListingsHeader({super.key});
+  const HomeRecentListingsHeader({super.key, this.onViewAllTap});
+
+  final VoidCallback? onViewAllTap;
 
   @override
   Widget build(BuildContext context) {
@@ -282,12 +284,15 @@ class HomeRecentListingsHeader extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        Text(
-          'View All',
-          style: AppFonts.inter(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w500,
-            color: const Color(0xFF5865FF),
+        GestureDetector(
+          onTap: onViewAllTap,
+          child: Text(
+            'View All',
+            style: AppFonts.inter(
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w500,
+              color: const Color(0xFF5865FF),
+            ),
           ),
         ),
       ],

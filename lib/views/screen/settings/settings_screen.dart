@@ -180,25 +180,22 @@ class SettingsScreen extends StatelessWidget {
                       } else if (item.title == 'Terms & Conditions') {
                         Get.toNamed(
                           AppRoutes.policyContentScreen,
-                          arguments: PolicyPageArgs(
+                          arguments: const PolicyPageArgs(
                             title: 'Terms & Conditions',
                           ),
                         );
                       } else if (item.title == 'Privacy Policy') {
                         Get.toNamed(
                           AppRoutes.policyContentScreen,
-                          arguments: PolicyPageArgs(title: 'Privacy Policy'),
+                          arguments: const PolicyPageArgs(title: 'Privacy Policy'),
                         );
                       } else if (item.title == 'About us') {
                         Get.toNamed(
                           AppRoutes.policyContentScreen,
-                          arguments: PolicyPageArgs(title: 'About us'),
+                          arguments: const PolicyPageArgs(title: 'About us'),
                         );
                       } else if (item.title == 'Contact Us') {
-                        Get.toNamed(
-                          AppRoutes.policyContentScreen,
-                          arguments: PolicyPageArgs(title: 'Contact Us'),
-                        );
+                        Get.toNamed(AppRoutes.contactUsScreen);
                       } else if (item.title == 'Logout') {
                         _showLogoutDialog();
                       }

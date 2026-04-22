@@ -98,4 +98,11 @@ class ListingsController extends GetxController {
     _allListings.removeWhere((item) => item.id == id);
     update();
   }
+
+  void updateListing(ListingItem updatedItem) {
+    final index = _allListings.indexWhere((item) => item.id == updatedItem.id);
+    if (index == -1) return;
+    _allListings[index] = updatedItem;
+    update();
+  }
 }

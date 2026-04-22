@@ -44,11 +44,15 @@ class ListingCard extends StatelessWidget {
   const ListingCard({
     super.key,
     required this.item,
+    required this.onViewTap,
+    required this.onEditTap,
     required this.onPauseTap,
     required this.onDeleteTap,
   });
 
   final ListingItem item;
+  final VoidCallback onViewTap;
+  final VoidCallback onEditTap;
   final VoidCallback onPauseTap;
   final VoidCallback onDeleteTap;
 
@@ -140,13 +144,14 @@ class ListingCard extends StatelessWidget {
                 SizedBox(height: 6.h),
                 Row(
                   children: [
-                    const _ActionPill(
+                    _ActionPill(
                       label: 'View',
                       bg: Color(0xFFD6ECFA),
                       textColor: Color(0xFF0E8FB3),
+                      onTap: onViewTap,
                     ),
                     SizedBox(width: 14.w),
-                    const _ActionText(label: 'Edit'),
+                    _ActionText(label: 'Edit', onTap: onEditTap),
                     SizedBox(width: 14.w),
                     _ActionText(label: 'Pause', onTap: onPauseTap),
                     const Spacer(),
@@ -217,23 +222,28 @@ class _ActionPill extends StatelessWidget {
     required this.label,
     required this.bg,
     required this.textColor,
+    this.onTap,
   });
 
   final String label;
   final Color bg;
   final Color textColor;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
-      decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(999.r)),
-      child: Text(
-        label,
-        style: AppFonts.inter(
-          fontSize: 13.sp,
-          fontWeight: FontWeight.w500,
-          color: textColor,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
+        decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(999.r)),
+        child: Text(
+          label,
+          style: AppFonts.inter(
+            fontSize: 13.sp,
+            fontWeight: FontWeight.w500,
+            color: textColor,
+          ),
         ),
       ),
     );

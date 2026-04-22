@@ -22,6 +22,7 @@ import 'package:flutter_extension/views/screen/main_nav/main_nav_screen.dart';
 import 'package:flutter_extension/views/screen/notifications/notifications_screen.dart';
 import 'package:flutter_extension/views/screen/listings/create_listing_screen.dart';
 import 'package:flutter_extension/views/screen/settings/business_info_screen.dart';
+import 'package:flutter_extension/views/screen/settings/contact_us_screen.dart';
 import 'package:flutter_extension/views/screen/settings/content_screen.dart';
 import 'package:flutter_extension/views/screen/settings/profile_screen.dart';
 import 'package:flutter_extension/views/screen/settings/tour_request_screen.dart';
@@ -48,6 +49,7 @@ class AppRoutes {
   static String tourRequestScreen = "/tour_request_screen";
   static String businessInfoScreen = "/business_info_screen";
   static String policyContentScreen = "/policy_content_screen";
+  static String contactUsScreen = "/contact_us_screen";
 
   /// Opens sign-up with [role] in [Get.arguments] (used by [SignUpController]).
   static Future<dynamic>? toSignUp(AppUserRole role) =>
@@ -185,5 +187,6 @@ class AppRoutes {
         Get.put(PolicyContentController());
       }),
     ),
+    GetPage(name: contactUsScreen, page: () => const ContactUsScreen()),
   ];
 }
