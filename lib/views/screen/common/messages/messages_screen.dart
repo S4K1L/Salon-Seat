@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_extension/util/app_fonts.dart';
-import 'package:flutter_extension/views/screen/messages/chat_detail_screen.dart';
+import 'package:flutter_extension/views/screen/common/messages/chat_detail_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 

@@ -22,6 +22,8 @@ class Images {
   static const String navAnalytics = "assets/icons/nav_analytics.svg";
   static const String navSettings = "assets/icons/nav_settings.svg";
 
+  static const String icVerifiedEmail = "assets/images/signMark.png";
+
   static const String homeMetricActiveListings =
       "assets/icons/salon.svg";
   static const String homeMetricPendingApproval =

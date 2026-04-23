@@ -96,6 +96,9 @@ class OtpController extends GetxController {
           arguments: ResetPasswordRouteArgs(email: email),
         );
         break;
+      case OtpAfterVerification.beautyProfileSetup:
+        Get.offAllNamed(AppRoutes.beautyProfileSetupScreen);
+        break;
       case OtpAfterVerification.listingPlan:
         Get.offAllNamed(AppRoutes.listingPlanScreen);
         break;

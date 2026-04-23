@@ -143,7 +143,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 SizedBox(height: 22.h),
-                AuthFormField(
+                if(_role == AppUserRole.salonOwner)...[
+                  AuthFormField(
                   label: 'Business Name',
                   controller: _c.businessNameController,
                   hintText: 'Enter business name',
@@ -184,6 +185,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   validator: (v) => _required(v, 'ZIP code'),
                 ),
                 SizedBox(height: 16.h),
+                ],
+                
                 AuthFormField(
                   label: 'Email',
                   controller: _c.emailController,
@@ -312,7 +315,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   () => PrimaryFilledButton(
                     label: 'Create Account',
                     loading: _c.isLoading.value,
-                    onPressed: () => _c.submit(_formKey),
+                    onPressed: () => _c.submit(_formKey, _role),
                   ),
                 ),
                 SizedBox(height: 22.h),

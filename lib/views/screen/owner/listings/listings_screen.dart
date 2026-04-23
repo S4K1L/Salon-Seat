@@ -6,7 +6,7 @@ import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_extension/util/app_fonts.dart';
 import 'package:flutter_extension/views/base/listing_widgets.dart';
 import 'package:flutter_extension/views/base/primary_filled_button.dart';
-import 'package:flutter_extension/views/screen/listings/listing_detail_screen.dart';
+import 'package:flutter_extension/views/screen/owner/listings/listing_detail_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 

@@ -17,17 +17,19 @@ import 'package:flutter_extension/views/screen/auth/login_screen.dart';
 import 'package:flutter_extension/views/screen/auth/otp_verification_screen.dart';
 import 'package:flutter_extension/views/screen/auth/reset_password_screen.dart';
 import 'package:flutter_extension/views/screen/auth/sign_up_screen.dart';
-import 'package:flutter_extension/views/screen/choose_role/choose_role_screen.dart';
-import 'package:flutter_extension/views/screen/main_nav/main_nav_screen.dart';
-import 'package:flutter_extension/views/screen/notifications/notifications_screen.dart';
-import 'package:flutter_extension/views/screen/listings/create_listing_screen.dart';
-import 'package:flutter_extension/views/screen/settings/business_info_screen.dart';
-import 'package:flutter_extension/views/screen/settings/contact_us_screen.dart';
-import 'package:flutter_extension/views/screen/settings/content_screen.dart';
-import 'package:flutter_extension/views/screen/settings/profile_screen.dart';
-import 'package:flutter_extension/views/screen/settings/tour_request_screen.dart';
-import 'package:flutter_extension/views/screen/subscription/listing_plan_screen.dart';
-import 'package:flutter_extension/views/screen/subscription/payment_method_screen.dart';
+import 'package:flutter_extension/views/screen/auth/beauty_profile_setup_screen.dart';
+import 'package:flutter_extension/views/screen/auth/choose_role/choose_role_screen.dart';
+import 'package:flutter_extension/views/screen/navbar/owner_navbar.dart';
+import 'package:flutter_extension/views/screen/navbar/professional_navbar.dart';
+import 'package:flutter_extension/views/screen/common/notifications/notifications_screen.dart';
+import 'package:flutter_extension/views/screen/owner/listings/create_listing_screen.dart';
+import 'package:flutter_extension/views/screen/common/settings/business_info_screen.dart';
+import 'package:flutter_extension/views/screen/common/settings/contact_us_screen.dart';
+import 'package:flutter_extension/views/screen/common/settings/content_screen.dart';
+import 'package:flutter_extension/views/screen/common/settings/profile_screen.dart';
+import 'package:flutter_extension/views/screen/common/settings/tour_request_screen.dart';
+import 'package:flutter_extension/views/screen/owner/subscription/listing_plan_screen.dart';
+import 'package:flutter_extension/views/screen/owner/subscription/payment_method_screen.dart';
 import 'package:get/get.dart';
 
 import '../views/screen/splash/splash_screen.dart';
@@ -40,9 +42,12 @@ class AppRoutes {
   static String otpScreen = "/otp";
   static String forgotPasswordScreen = "/forgot_password";
   static String resetPasswordScreen = "/reset_password";
+  static String beautyProfileSetupScreen = "/beauty_profile_setup";
   static String listingPlanScreen = "/listing_plan";
   static String paymentMethodScreen = "/payment_method";
   static String homeScreen = "/home_screen";
+  /// Beauty professional main shell (bottom nav: Home, Listings, Message, Settings).
+  static String professionalHomeScreen = "/professional_home";
   static String notificationsScreen = "/notifications";
   static String createListingScreen = "/create_listing";
   static String profileScreen = "/profile_screen";
@@ -115,6 +120,10 @@ class AppRoutes {
       }),
     ),
     GetPage(
+      name: beautyProfileSetupScreen,
+      page: () => const BeautyProfileSetupScreen(),
+    ),
+    GetPage(
       name: listingPlanScreen,
       page: () => const ListingPlanScreen(),
       binding: BindingsBuilder(() {
@@ -136,7 +145,11 @@ class AppRoutes {
         Get.put(PaymentMethodController(planTierIndex: idx));
       }),
     ),
-    GetPage(name: homeScreen, page: () => const MainNavScreen()),
+    GetPage(name: homeScreen, page: () => const OwnerNavScreen()),
+    GetPage(
+      name: professionalHomeScreen,
+      page: () => const ProfessionalNavbar(),
+    ),
     GetPage(name: notificationsScreen, page: () => const NotificationsScreen()),
     GetPage(name: createListingScreen, page: () => const CreateListingScreen()),
     GetPage(

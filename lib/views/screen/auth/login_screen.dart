@@ -9,7 +9,7 @@ import 'package:flutter_extension/views/base/auth_form_field.dart';
 import 'package:flutter_extension/views/base/facebook_brand_button.dart';
 import 'package:flutter_extension/views/base/outlined_icon_label_button.dart';
 import 'package:flutter_extension/views/base/primary_filled_button.dart';
-import 'package:flutter_extension/views/screen/choose_role/choose_role_screen.dart';
+import 'package:flutter_extension/views/screen/auth/choose_role/choose_role_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

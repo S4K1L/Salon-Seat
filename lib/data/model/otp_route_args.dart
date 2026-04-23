@@ -30,6 +30,7 @@ enum OtpAfterVerification {
   login,
   home,
   resetPassword,
+  beautyProfileSetup,
   /// Sign-up completion: choose subscription tier, then payment.
   listingPlan,
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/controller/choose_role_controller.dart';
 import 'package:flutter_extension/data/model/otp_route_args.dart';
 import 'package:flutter_extension/helper/route_helper.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,7 @@ class SignUpController extends GetxController {
     agreeToTerms.value = !agreeToTerms.value;
   }
 
-  Future<void> submit(GlobalKey<FormState> formKey) async {
+  Future<void> submit(GlobalKey<FormState> formKey, AppUserRole role) async {
     if (!agreeToTerms.value) {
       Get.showSnackbar(
         const GetSnackBar(
@@ -43,12 +44,15 @@ class SignUpController extends GetxController {
     isLoading.value = false;
 
     final email = emailController.text.trim();
+    final afterVerification = role == AppUserRole.beautyProfessional
+        ? OtpAfterVerification.beautyProfileSetup
+        : OtpAfterVerification.listingPlan;
     Get.offNamed(
       AppRoutes.otpScreen,
       arguments: OtpRouteArgs(
         email: email,
         purpose: OtpPurpose.signUp,
-        afterVerification: OtpAfterVerification.listingPlan,
+        afterVerification: afterVerification,
       ),
     );
   }

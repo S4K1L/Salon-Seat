@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_extension/theme/dark_theme.dart';
 import 'package:flutter_extension/theme/light_theme.dart';
 import 'package:flutter_extension/util/app_constants.dart';
@@ -12,6 +13,11 @@ import 'helper/route_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  try {
+    await dotenv.load(fileName: '.env');
+  } catch (e, st) {
+    debugPrint('Could not load .env: $e\n$st');
+  }
   Map<String, Map<String, String>> _languages = await di.init();
   runApp(MyApp(languages: _languages));
 }

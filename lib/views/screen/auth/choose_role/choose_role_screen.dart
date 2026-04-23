@@ -48,21 +48,28 @@ class ChooseRoleScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 32.h),
-              RoleOptionCard(
-                title: 'Salon Owner',
-                description:
-                    'List your salon spaces and connect with professionals',
-                isSelected: true,
-                leadingSvgPath: Images.iconSalon,
-                onTap: () => _goToSignUp(AppUserRole.salonOwner),
-              ),
-              SizedBox(height: 16.h),
-              RoleOptionCard(
-                title: 'Beauty Professional',
-                description: 'Find and rent perfect salon spaces',
-                isSelected: false,
-                leadingSvgPath: Images.iconBeautyProfessional,
-                onTap: () => _goToSignUp(AppUserRole.beautyProfessional),
+              GetBuilder<ChooseRoleController>(
+                builder: (controller) => Column(
+                  children: [
+                    RoleOptionCard(
+                      title: 'Salon Owner',
+                      description:
+                          'List your salon spaces and connect with professionals',
+                      isSelected: controller.chosenRole == AppUserRole.salonOwner,
+                      leadingSvgPath: Images.iconSalon,
+                      onTap: () => _goToSignUp(AppUserRole.salonOwner),
+                    ),
+                    SizedBox(height: 16.h),
+                    RoleOptionCard(
+                      title: 'Beauty Professional',
+                      description: 'Find and rent perfect salon spaces',
+                      isSelected:
+                          controller.chosenRole == AppUserRole.beautyProfessional,
+                      leadingSvgPath: Images.iconBeautyProfessional,
+                      onTap: () => _goToSignUp(AppUserRole.beautyProfessional),
+                    ),
+                  ],
+                ),
               ),
               const Spacer(),
               Center(

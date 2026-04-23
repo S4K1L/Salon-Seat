@@ -23,6 +23,10 @@ migrate_working_dir/
 # is commented out by default.
 #.vscode/
 
+# Local secrets (copy from .env via: dart run tool/sync_google_api_key_to_ios.dart)
+ios/Flutter/Secrets.xcconfig
+.env
+
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id

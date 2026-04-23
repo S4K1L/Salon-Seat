@@ -47,5 +47,11 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs access to your photo library to attach images in chat.</string>
+	<key>GMSApiKey</key>
+	<string>$(GOOGLE_API_KEY)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>SalonSeat uses your location to show nearby salon listings on the map.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>SalonSeat uses your location to show nearby salon listings on the map.</string>
 </dict>
 </plist>
